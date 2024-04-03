@@ -153,8 +153,7 @@ fun SignUp(viewModel: AuthViewModel = AuthViewModel()) {
                 }
 
                 is UserState.Success -> {
-                    val message = (userState as UserState.Success).message
-                    message
+                    (userState as UserState.Success).message
                 }
 
                 is UserState.Error -> {
@@ -164,7 +163,13 @@ fun SignUp(viewModel: AuthViewModel = AuthViewModel()) {
             }
 
             if (currentUserState.isNotEmpty()) {
-                Text(text = "Статус: ${currentUserState}", modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp).padding(top = 20.dp), textAlign = TextAlign.Center)
+                Text(text = "Статус: ${currentUserState}",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 24.dp)
+                        .padding(top = 20.dp),
+                    textAlign = TextAlign.Center
+                )
             }
         }
     }
